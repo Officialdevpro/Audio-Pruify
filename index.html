@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./icons/logo.png" type="image/png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="preview-container">
+      <video id="livePreview" autoplay></video>
+      <video id="recordedVideo" controls style="display: none"></video>
+      <div class="audio-container" style="display: none;">
+        <div class="orginal-audio">
+          <h3>Orginal Audio</h3>
+          <audio
+            id="audioPreview"
+            controls
+            src=""
+          ></audio>
+        </div>
+
+        <div class="processed-audio">
+          <h3>Processed Audio</h3>
+          <!-- This will hold the audio player -->
+          <span class="loader"></span>
+        </div>
+      </div>
+      <audio id="audioPlayer" controls style="display: none;"></audio>
+    </div>
+
+    <nav>
+      <div class="nav-content">
+        <div class="toggle-btn">
+          <i class="bx bx-plus"></i>
+        </div>
+        <span style="--i: 2" id="uploadBtn">
+          <a href="#" data-file-type="audio"
+            ><i class="bx bx-cloud-upload"></i
+          ></a>
+        </span>
+
+        <span style="--i: 3" id="recordBtn">
+          <a href="#" data-file-type="video"><i class="bx bx-video"></i></a>
+        </span>
+        <span style="--i: 4">
+          <a href="#" data-file-type="webcam"
+            ><i class="bx bx-microphone"></i
+          ></a>
+        </span>
+      </div>
+    </nav>
+    <input type="file" id="fileInput" accept="*" style="display: none" />
+    <input type="file" id="videoInput" accept="video/*" style="display: none" />
+    <input type="file" id="audioInput" accept="audio/*" style="display: none" />
+
+    <script src="script.js"></script>
+    <script src="./service-worker.js"></script>
+  </body>
+</html>
