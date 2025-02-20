@@ -44,7 +44,7 @@ function handleFileSelection(fileType) {
 function previewFile(file, fileType) {
   const previewContainer = document.querySelector(".preview-container");
   const videoPreview = document.getElementById("recordedVideo");
-  const audioPreview = document.getElementById("audioPreview");
+ 
   const livePreview = document.getElementById("livePreview");
  
   loader.style.display = "block";
@@ -55,7 +55,8 @@ function previewFile(file, fileType) {
 
   if (fileType == "audio") {
     document.querySelector(".audio-container").style.display = "flex";
-    audioPreview.src = URL.createObjectURL(file);
+    
+    createWaveSurfer("#preview-waveform",URL.createObjectURL(file))
   } else if (fileType === "video" || fileType === "webcam") {
     audioPreview.style.display = "none";
     videoPreview.src = URL.createObjectURL(file);
@@ -83,7 +84,7 @@ function uploadFileToBackend(file) {
       const wavesurfer = WaveSurfer.create({
         container: "#waveform",
         waveColor: "#686666",
-        progressColor: "#7208f3",
+        progressColor: getRandomColor(),
         barWidth: 2,
       });
       fetch(audioUrl) // Fetch the blob data from the URL
@@ -123,4 +124,53 @@ function uploadFileToBackend(file) {
       );
     })
     .catch((e) => console.error("Error uploading file:", e));
+}
+
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}`;
+}
+
+
+
+function createWaveSurfer(containerId, audioUrl) {
+  // Create WaveSurfer instance for the given container
+  const wavesurfer = WaveSurfer.create({
+    container: containerId,
+    waveColor: "#686666",
+    progressColor: getRandomColor(),
+    barWidth: 2,
+  });
+
+  // Fetch the audio blob and load it into WaveSurfer
+  fetch(audioUrl)
+    .then((response) => response.blob()) // Convert response to an actual Blob
+    .then((blob) => {
+      wavesurfer.loadBlob(blob); // Load the Blob into WaveSurfer
+    })
+    .catch((error) => console.error("Error loading audio blob:", error));
+
+  // Play/pause on click
+  wavesurfer.on("interaction", () => wavesurfer.playPause());
+
+  // Hover effect
+  const hover = document.querySelector("#preview-hover");
+  const waveform = document.querySelector(containerId);
+  waveform.addEventListener("pointermove", (e) => {
+    hover.style.width = `${e.offsetX}px`;
+  });
+
+  // Format time function
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secondsRemainder = Math.round(seconds) % 60;
+    return `${minutes}:${secondsRemainder.toString().padStart(2, "0")}`;
+  };
+
+  // Update time and duration
+  const timeEl = document.querySelector("#preview-time");
+  const durationEl = document.querySelector("#preview-duration");
+  wavesurfer.on("ready", () => (durationEl.textContent = formatTime(wavesurfer.getDuration())));
+  wavesurfer.on("audioprocess", () => (timeEl.textContent = formatTime(wavesurfer.getCurrentTime())));
+
+  return wavesurfer; // Return the instance for further control if needed
 }
