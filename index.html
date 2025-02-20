@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voice</title>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" />
     <link rel="stylesheet" href="style.css" />
@@ -14,6 +15,7 @@
     />
   </head>
   <body>
+    <main></main>
     <footer>
       <ul>
         <li>
@@ -41,7 +43,6 @@
           </svg>
         </li>
 
-    
         <li>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +116,23 @@
           </svg>
         </li>
         <li>
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-baseline-density-medium"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h16" /><path d="M4 12h16" /><path d="M4 4h16" /></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-baseline-density-medium"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 20h16" />
+            <path d="M4 12h16" />
+            <path d="M4 4h16" />
+          </svg>
         </li>
       </ul>
     </footer>
@@ -130,11 +147,15 @@
 
         <div class="processed-audio">
           <h3>Processed Audio</h3>
-          <!-- This will hold the audio player -->
+
           <span class="loader"></span>
         </div>
       </div>
-      <audio id="audioPlayer" controls style="display: none"></audio>
+      <div id="waveform">
+        <div id="time">0:00</div>
+        <div id="duration">0:00</div>
+        <div id="hover"></div>
+      </div>
     </div>
 
     <input type="file" id="fileInput" accept="*" style="display: none" />
