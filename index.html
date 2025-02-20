@@ -14,17 +14,118 @@
     />
   </head>
   <body>
+    <footer>
+      <ul>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-text"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+            />
+            <path
+              d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+            />
+            <path d="M9 12h6" />
+            <path d="M9 16h6" />
+          </svg>
+        </li>
+
+    
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-wave-sine"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M21 12h-2c-.894 0 -1.662 -.857 -1.761 -2c-.296 -3.45 -.749 -6 -2.749 -6s-2.5 3.582 -2.5 8s-.5 8 -2.5 8s-2.452 -2.547 -2.749 -6c-.1 -1.147 -.867 -2 -1.763 -2h-2"
+            />
+          </svg>
+        </li>
+        <li>
+          <nav>
+            <div class="nav-content">
+              <div class="toggle-btn">
+                <i class="bx bx-plus"></i>
+              </div>
+              <span style="--i: 2" id="uploadBtn">
+                <a href="#" data-file-type="audio"
+                  ><i class="bx bx-cloud-upload"></i
+                ></a>
+              </span>
+
+              <span style="--i: 3" id="recordBtn">
+                <a href="#" data-file-type="video"
+                  ><i class="bx bx-video"></i
+                ></a>
+              </span>
+              <span style="--i: 4">
+                <a href="#" data-file-type="webcam"
+                  ><i class="bx bx-microphone"></i
+                ></a>
+              </span>
+            </div>
+          </nav>
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+            />
+            <path
+              d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+            />
+            <path
+              d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+            />
+            <path
+              d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+            />
+          </svg>
+        </li>
+        <li>
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-baseline-density-medium"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h16" /><path d="M4 12h16" /><path d="M4 4h16" /></svg>
+        </li>
+      </ul>
+    </footer>
     <div class="preview-container">
       <video id="livePreview" autoplay></video>
       <video id="recordedVideo" controls style="display: none"></video>
-      <div class="audio-container" style="display: none;">
+      <div class="audio-container" style="display: none">
         <div class="orginal-audio">
           <h3>Orginal Audio</h3>
-          <audio
-            id="audioPreview"
-            controls
-            src=""
-          ></audio>
+          <audio id="audioPreview" controls src=""></audio>
         </div>
 
         <div class="processed-audio">
@@ -33,30 +134,9 @@
           <span class="loader"></span>
         </div>
       </div>
-      <audio id="audioPlayer" controls style="display: none;"></audio>
+      <audio id="audioPlayer" controls style="display: none"></audio>
     </div>
 
-    <nav>
-      <div class="nav-content">
-        <div class="toggle-btn">
-          <i class="bx bx-plus"></i>
-        </div>
-        <span style="--i: 2" id="uploadBtn">
-          <a href="#" data-file-type="audio"
-            ><i class="bx bx-cloud-upload"></i
-          ></a>
-        </span>
-
-        <span style="--i: 3" id="recordBtn">
-          <a href="#" data-file-type="video"><i class="bx bx-video"></i></a>
-        </span>
-        <span style="--i: 4">
-          <a href="#" data-file-type="webcam"
-            ><i class="bx bx-microphone"></i
-          ></a>
-        </span>
-      </div>
-    </nav>
     <input type="file" id="fileInput" accept="*" style="display: none" />
     <input type="file" id="videoInput" accept="video/*" style="display: none" />
     <input type="file" id="audioInput" accept="audio/*" style="display: none" />
