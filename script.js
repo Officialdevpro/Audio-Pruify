@@ -227,3 +227,7 @@ function parameters(file) {
 document
   .getElementById("refresh")
   .addEventListener("click", () => window.location.reload());
+
+  document.querySelector(".theme").addEventListener("click",()=>{
+    document.body.classList.add("dark")
+  })

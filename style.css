@@ -288,3 +288,11 @@ footer ul li {
 #duration,#preview-duration {
   right: 0;
 }
+
+body.dark{
+  background-color: #000000;
+}
+body.dark footer{
+  background-color: #000000;
+  color: #ffffff;
+}
