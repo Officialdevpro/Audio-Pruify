@@ -6,8 +6,6 @@
     <title>Voice</title>
     <script src="https://unpkg.com/wavesurfer.js"></script>
 
-    <script src="https://unpkg.com/meyda"></script>
-
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" />
     <link rel="stylesheet" href="style.css" />
@@ -82,9 +80,9 @@
                   ><i class="bx bx-video"></i
                 ></a>
               </span>
-              <span style="--i: 4">
+              <span style="--i: 4" id="refresh">
                 <a href="#" data-file-type="webcam"
-                  ><i class="bx bx-microphone"></i
+                  ><i class="bx bx-refresh"></i
                 ></a>
               </span>
             </div>
@@ -144,7 +142,6 @@
       <video id="recordedVideo" controls style="display: none"></video>
       <div class="audio-container" style="display: none">
         <div class="orginal-audio">
-          <h3>Orginal Audio</h3>
           <div id="preview-waveform">
             <div id="preview-time">0:00</div>
             <div id="preview-duration">0:00</div>
@@ -153,8 +150,6 @@
         </div>
 
         <div class="processed-audio">
-          <h3>Processed Audio</h3>
-
           <span class="loader"></span>
         </div>
       </div>
@@ -207,37 +202,38 @@
       .box-3 {
         background-color: rgba(160, 76, 234, 0.854);
       }
-      .content{
+      .content {
         display: flex;
         gap: 10px;
-        justify-content: center;align-items: center;
+        justify-content: center;
+        align-items: center;
       }
     </style>
-    <div class="parameters" style="display: none;">
+    <div class="parameters" style="display: none">
       <ul>
         <li class="box-1">
-         <div class="content">
-          <h1 class="pitch">0.00</h1>
-          <b>Pitch</b>
-         </div>
+          <div class="content">
+            <h1 class="pitch">0.00</h1>
+            <b>Pitch</b>
+          </div>
         </li>
         <li class="box-2">
           <div class="content">
             <h1 class="tempo">0.00</h1>
             <b>Tempo</b>
-           </div>
+          </div>
         </li>
         <li class="box-3">
           <div class="content">
             <h1 class="amp">0.00</h1>
             <b>Amp</b>
-           </div>
+          </div>
         </li>
         <li class="box-4">
           <div class="content">
             <h1 class="freq">0.00</h1>
             <b>Freq</b>
-           </div>
+          </div>
         </li>
       </ul>
     </div>

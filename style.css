@@ -87,18 +87,22 @@ nav.open .nav-content span {
   opacity: 1;
 }
 
+#duration,#time{
+  display: none;
+}
+
 .preview-container {
   width: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 30%;
+  top: 22%;
   left: 50%;
   flex-direction: column;
   transform: translate(-50%, -50%);
   height: 90%;
-  gap: 40px;
+  gap: 0px;
 }
 .audio-container,
 .orginal-audio,
@@ -110,7 +114,7 @@ nav.open .nav-content span {
   align-items: center;
 }
 .audio-container {
-  gap: 50px;
+  gap: 8px;
 }
 video {
   width: 90% !important;
