@@ -209,9 +209,15 @@ function parameters(file) {
     body: formData,
   })
     .then((res) => res.json()) // Convert the response to a blob (audio file)
-    .then((data) => {
-      console.log(data);
-      document.querySelector(".parameters").style.display = 'flex'
+    .then((params) => {
+      let { data } = params;
+
+      document.querySelector(".pitch").textContent = data.pitch.toFixed(2);
+      document.querySelector(".tempo").textContent = data.tempo.toFixed(2);
+      document.querySelector(".amp").textContent = data.amplitude.toFixed(2);
+      document.querySelector(".freq").textContent =
+        data.dominant_frequency.toFixed(2);
+      document.querySelector(".parameters").style.display = "flex";
     })
     .catch((err) => {
       console.log(err);
